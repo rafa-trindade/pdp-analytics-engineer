@@ -16,7 +16,8 @@ O projeto contempla:
 
 ## 📍 Progresso do Projeto
 
-- ✅ Geração das dimensões `dim_date` e `dim_time` via Python, utilizadas como **seeds** no DBT.  
+- ✅ Geração das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
+- ✅ Ingestão de dados transacionais fictícios no projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafadrindade).
 - 🚧 **Próximos passos:** implementação das camadas *staging* e *core*, modelagem das tabelas fato e dimensões analíticas, e integração completa ao pipeline orquestrado pelo Airflow.
 
 ---
