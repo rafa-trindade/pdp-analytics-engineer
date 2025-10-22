@@ -16,7 +16,7 @@ O projeto contempla:
 
 ## 📍 Progresso do Projeto
 
-- ✅ Geração das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
+- ✅ Criação das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
 - ✅ Ingestão de dados transacionais fictícios no banco de dados do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).
 
 
