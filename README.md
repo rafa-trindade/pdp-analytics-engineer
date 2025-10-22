@@ -1,4 +1,5 @@
-# Data Warehouse PDP-Hospedagem
+# pdp-hospedagem Data Warehouse
+[![Projeto Badge](https://img.shields.io/badge/-pdp--hospedagem-2B5482?style=flat-square&logo=github&logoColor=fff)](https://github.com/rafa-trindade/pdp-hospedagem)
 
 > **Status:** Em andamento  
 
