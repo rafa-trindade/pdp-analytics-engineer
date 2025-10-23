@@ -1,8 +1,8 @@
-from scripts import transform_data
+from scripts import dbt_seeds
 
 def run_etl():
     print("🧩 Gerando seeds (dim_date e dim_time)")
-    transform_data.generate_seeds()
+    dbt_seeds.generate_seeds()
     print("✅ Seeds gerados com sucesso!")
 
 if __name__ == "__main__":
