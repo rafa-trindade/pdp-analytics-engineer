@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, text
 from config.db_config import POSTGRES_CONFIG
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'extracted')
-STAGING_SCHEMA = "staging"  # ✅ Schema de destino
+STAGING_SCHEMA = "staging"
 
 def get_engine():
     cfg = POSTGRES_CONFIG
@@ -18,7 +18,7 @@ def ensure_schema_exists(engine, schema_name):
 
 def load_csv_to_postgres(engine, csv_path):
     table_name = os.path.splitext(os.path.basename(csv_path))[0].lower()
-    full_table_name = f'{STAGING_SCHEMA}."{table_name}"'  # ✅ usar schema
+    full_table_name = f'{STAGING_SCHEMA}."{table_name}"'
     print(f"\n🔹 Processando {csv_path} → tabela {full_table_name}")
 
     df = pd.read_csv(csv_path)
@@ -35,7 +35,6 @@ def load_csv_to_postgres(engine, csv_path):
         raise ValueError(f"Nenhuma coluna de ID encontrada no CSV {csv_path}")
 
     with engine.begin() as conn:
-        # Criar tabela dentro do schema staging
         columns_def = ", ".join([f'"{c}" TEXT' for c in df.columns])
         create_sql = f"""
         CREATE TABLE IF NOT EXISTS {full_table_name} (
@@ -63,7 +62,7 @@ def load_csv_to_postgres(engine, csv_path):
 
 def main():
     engine = get_engine()
-    ensure_schema_exists(engine, STAGING_SCHEMA)  # ✅ Garante o schema antes
+    ensure_schema_exists(engine, STAGING_SCHEMA) 
 
     if not os.path.exists(DATA_PATH):
         print(f"Pasta {DATA_PATH} não encontrada.")
@@ -78,7 +77,7 @@ def main():
         try:
             load_csv_to_postgres(engine, csv_file)
         except Exception as e:
-            print(f"❌ Erro ao processar {csv_file}: {e}")
+            print(f"Erro ao processar {csv_file}: {e}")
 
 if __name__ == "__main__":
     main()

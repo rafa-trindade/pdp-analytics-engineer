@@ -14,10 +14,8 @@ def extract_from_sqlserver():
         "clsMovimentacao"
     ]
     
-    # Caminho absoluto dentro do container (montado para o host)
     output_dir = "/opt/airflow/data/extracted"
 
-    # Se o script for executado fora do container, usa caminho relativo do projeto
     if not os.path.exists("/opt/airflow"):
         output_dir = os.path.join(os.getcwd(), "data", "extracted")
 
