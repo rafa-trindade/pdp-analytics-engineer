@@ -1,15 +1,18 @@
+# Base image oficial do Airflow 2.9.3 com Python 3.11
 FROM apache/airflow:2.9.3-python3.11
 
 USER root
 
+# Dependências do sistema para pyodbc e SQL Server
 RUN apt-get update && apt-get install -y \
+    unixodbc-dev \
     curl \
     gnupg2 \
     apt-transport-https \
-    unixodbc-dev \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+# Instala o driver ODBC do SQL Server
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
@@ -17,15 +20,9 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 
 USER airflow
 
+# Pacotes Python essenciais apenas para o extract
 RUN pip install --no-cache-dir \
     pandas==2.3.3 \
-    pyodbc==5.3.0 \
-    "sqlalchemy<2.0" \
-    psycopg2-binary \
-    openpyxl \
-    xlrd \
-    tqdm \
-    requests
+    pyodbc==5.3.0
 
 WORKDIR /opt/airflow
-
