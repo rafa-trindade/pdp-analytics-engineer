@@ -4,6 +4,7 @@ from airflow.operators.bash import BashOperator
 from datetime import datetime
 
 SCRIPT_EXTRACT = "/opt/airflow/scripts/extract_data.py"
+SCRIPT_LOAD = "/opt/airflow/scripts/load_data.py"
 PYTHONPATH = "/opt/airflow:/opt/airflow/scripts:/opt/airflow/config"
 
 with DAG(
@@ -19,4 +20,9 @@ with DAG(
         bash_command=f"PYTHONPATH={PYTHONPATH} python {SCRIPT_EXTRACT}"
     )
 
-    extract_task
+    load_task = BashOperator(
+        task_id="load_data",
+        bash_command=f"PYTHONPATH={PYTHONPATH} python {SCRIPT_LOAD}"
+    )
+
+    extract_task >> load_task

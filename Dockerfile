@@ -1,3 +1,4 @@
+# Base oficial do Airflow com Python 3.11
 FROM apache/airflow:2.9.3-python3.11
 
 USER root
@@ -7,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     gnupg2 \
     apt-transport-https \
     unixodbc-dev \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
@@ -19,6 +21,12 @@ USER airflow
 RUN pip install --no-cache-dir \
     pandas==2.3.3 \
     pyodbc==5.3.0 \
-    sqlalchemy>=2.0.25 \
-    psycopg2-binary
+    "sqlalchemy<2.0" \
+    psycopg2-binary \
+    openpyxl \
+    xlrd \
+    tqdm \
+    requests
+
+WORKDIR /opt/airflow
 

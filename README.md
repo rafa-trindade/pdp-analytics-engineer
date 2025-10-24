@@ -4,7 +4,7 @@
 Este projeto realiza a **implementação, modelagem e consumo de um Data Warehouse** utilizando **Airflow**, **DBT** e **Power BI**, integrando dados transacionais do projeto [pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem).
 
 O projeto contempla:  
-- **Conteinerização da aplicação** com **Docker**, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, DBT);  
+- **Conteinerização da aplicação** com **Docker**, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, pgAdmin, DBT);  
 - **Orquestração de pipelines** utilizando o **Apache Airflow**;  
 - **Transformação, documentação e modelagem** utilizando o **DBT**:
 - **Consumo dos modelos analíticos** gerados pelo **DBT** no **Power BI**, garantindo uma **camada de visualização integrada** e **atualizações automatizadas** dos dashboards e relatórios.
@@ -17,7 +17,7 @@ O projeto contempla:
 - ✅ Ingestão de dados transacionais fictícios no banco de dados **SQL Server** do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).  
 - ✅ **Conteinerização** do projeto utilizando **Docker**, com configuração de:
   - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
-  - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL**).
+  - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL** + **pgAdmin**).
 - ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline do **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
 
 ---
