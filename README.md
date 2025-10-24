@@ -1,7 +1,5 @@
-# pdp-hospedagem Data Warehouse
+# 🗄️ pdp-dw-powerbi
 [![Projeto Badge](https://img.shields.io/badge/-pdp--hospedagem-2B5482?style=flat-square&logo=github&logoColor=fff)](https://github.com/rafa-trindade/pdp-hospedagem)
-
-> **Status:** Em andamento  
 
 Este projeto realiza a **implementação, modelagem e consumo de um Data Warehouse** utilizando **Airflow**, **DBT** e **Power BI**, integrando dados transacionais do projeto [pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem).  
 
@@ -16,7 +14,7 @@ O projeto contempla:
 
 ---
 
-## 📍 Progresso do Projeto
+## 📍 Progresso do Projeto:
 
 - ✅ Criação das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
 - ✅ Ingestão de dados transacionais fictícios no banco de dados SQL Server do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).
@@ -26,14 +24,14 @@ O projeto contempla:
 - ✅ Implementação da **extração** dos dados transacionais via pipeline do Airflow, com arquivos extraídos salvos na pasta `data/extracted`.  
 
 
-## 🚧 Próximos passos:
+## 🚧 Próximos Passos:
 - ETL dos dados transacionais do SQL Server para o PostgreSQL via pipelines orquestradas no Airflow (continuação: **transformação e carga**).  
 - Implementação das camadas **staging** e **core**.  
 - Modelagem das **tabelas fato** e **dimensões analíticas** utilizando dbt.
 
 ---
 
-## 📦 Bibliotecas Utilizadas
+## 📦 Bibliotecas Utilizadas:
 
 **Ambiente:** Python 3.11  
 
@@ -45,14 +43,14 @@ O projeto contempla:
 | **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
 | **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
 
-## ⚡ Iniciar o ambiente com Docker
+## ⚡ Inicialização do ambiente com Docker:
 
 ```bash
 docker-compose build airflow
 docker-compose up -d
 ```
 
-## 🗂️ Estrutura do Projeto
+## 🗂️ Estrutura do Projeto:
 
 ```text
 pdp-dw-powerbi/
@@ -90,8 +88,8 @@ pdp-dw-powerbi/
 
 ---
 
-## 🧩 Diagrama do Modelo OLTP
+## 🧩 Diagrama do Modelo OLTP:
 ![Diagrama OLTP](docs/diagrams/oltp_model.png)
 
-## 🧠 Diagrama do Modelo OLAP
+## 🧠 Diagrama do Modelo OLAP:
 ![Diagrama OLAP](docs/diagrams/olap_model.png)
