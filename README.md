@@ -55,12 +55,16 @@ O projeto contempla:
 | **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
 | **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
 
+---
+
 ## ⚡ Inicialização do ambiente com Docker:
 
 ```bash
 docker-compose build airflow
 docker-compose up -d
 ```
+
+---
 
 ## 🗂️ Estrutura do Projeto:
 
