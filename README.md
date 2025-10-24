@@ -20,7 +20,7 @@ O projeto contempla:
 - ✅ **Conteinerização** do projeto utilizando **Docker**, com configuração de:
   - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
   - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL**).
-- ✅ Implementação da **extração** dos dados transacionais via pipeline do **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
+- ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline do **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
 
 ---
 
