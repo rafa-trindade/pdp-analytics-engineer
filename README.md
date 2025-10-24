@@ -61,6 +61,12 @@ docker-compose build airflow
 docker-compose up -d
 ```
 
+## ⚡ Exemplo de execução manual da DAG de extração:
+
+```bash
+docker exec -it airflow airflow tasks test elt_dag extract_data 2025-10-24
+```
+
 ---
 
 ## 🗂️ Estrutura do Projeto:

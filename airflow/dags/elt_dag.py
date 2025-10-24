@@ -7,11 +7,11 @@ SCRIPT_EXTRACT = "/opt/airflow/scripts/extract_data.py"
 PYTHONPATH = "/opt/airflow:/opt/airflow/scripts:/opt/airflow/config"
 
 with DAG(
-    dag_id="etl_dag",
+    dag_id="elt_dag",
     start_date=datetime(2025, 10, 23),
-    schedule_interval=None,
+    schedule_interval="0 3 * * *",
     catchup=False,
-    tags=["extract", "load", "portfolio"]
+    tags=["extract", "load", "transform", "portfolio"]
 ) as dag:
 
     extract_task = BashOperator(
