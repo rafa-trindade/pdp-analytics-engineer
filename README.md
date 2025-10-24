@@ -25,7 +25,7 @@ O projeto contempla:
 
 ---
 
-## 🚧 Próximos Passos
+## 🚧 Próximos Passos:
 
 - **Carga (Load)** dos dados extraídos do SQL Server para o PostgreSQL via pipeline orquestrada no Airflow.  
 - **Transformações (Transform)** dos dados no DBT, estruturando as camadas **staging**, **core**.  
@@ -34,7 +34,7 @@ O projeto contempla:
 
 ---
 
-### 🔁 Resumo da Arquitetura ELT
+### 🔁 Resumo da Arquitetura ELT e Dataviz:
 
 1. **Extract:** Extração dos dados transacionais do SQL Server via Airflow. *(Etapa concluída ✅)*  
 2. **Load:** Carga dos dados brutos no Data Warehouse (PostgreSQL). *(Próxima etapa 🚧)*  
