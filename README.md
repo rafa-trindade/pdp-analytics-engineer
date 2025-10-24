@@ -7,7 +7,7 @@ O projeto contempla:
 - **Conteinerização da aplicação** com **Docker**, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, DBT);  
 - **Orquestração de pipelines** utilizando o **Apache Airflow**;  
 - **Transformação, documentação e modelagem** utilizando o **DBT**:
-- **Consumo** dos modelos com o **Power BI** para criação de dashboards e relaórios.  
+- **Consumo dos modelos analíticos** gerados pelo **DBT** no **Power BI**, garantindo uma **camada de visualização integrada** e **atualizações automatizadas** dos dashboards e relatórios.
 
 ---
 
