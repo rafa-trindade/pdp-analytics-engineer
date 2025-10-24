@@ -1,9 +1,21 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-
-# Configs e ambientes
-secrets.toml
-.venv
-.env
+*.pyo
+*.pyd
 .vscode
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+airflow/logs/
+logs/
