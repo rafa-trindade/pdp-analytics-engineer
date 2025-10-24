@@ -1,33 +1,45 @@
 # 🗄️ pdp-dw-powerbi
 [![Projeto Badge](https://img.shields.io/badge/-pdp--hospedagem-2B5482?style=flat-square&logo=github&logoColor=fff)](https://github.com/rafa-trindade/pdp-hospedagem)
 
-Este projeto realiza a **implementação, modelagem e consumo de um Data Warehouse** utilizando **Airflow**, **DBT** e **Power BI**, integrando dados transacionais do projeto [pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem).  
+Este projeto realiza a **implementação, modelagem e consumo de um Data Warehouse** utilizando **Airflow**, **DBT** e **Power BI**, integrando dados transacionais do projeto [pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem).
 
 O projeto contempla:  
-- **Orquestração de pipelines ETL** utilizando o Apache Airflow;  
+- **Orquestração de pipelines ELT** utilizando o **Apache Airflow**;  
 - **Transformação e organização dos dados em camadas:**  
-  - **Staging:** armazenamento de dados brutos provenientes das fontes transacionais;  
+  - **Staging:** armazenamento de dados brutos carregados diretamente das fontes transacionais;  
   - **Core:** tratamento, padronização e integração dos dados, formando a base consolidada;  
-  - **Data Mart:** modelagem analítica voltada ao consumo em dashboards e relatórios;  
-- **Conteinerização da aplicação** com Docker, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, dbt);  
-- **Criação de dashboards e análises interativas** no Power BI, apoiando a tomada de decisão.
+  - **Data Mart:** modelagem analítica **OLAP**, composta por **tabelas fato** e **tabelas dimensão**, voltada ao consumo em dashboards e relatórios;  
+  - **Conteinerização da aplicação** com **Docker**, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, dbt);  
+- **Criação de dashboards e análises interativas** no **Power BI**, apoiando a tomada de decisão.
 
 ---
 
 ## 📍 Progresso do Projeto:
 
 - ✅ Criação das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
-- ✅ Ingestão de dados transacionais fictícios no banco de dados SQL Server do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).
-- ✅ **Conteinerização** do projeto utilizando Docker, com configuração de:
+- ✅ Ingestão de dados transacionais fictícios no banco de dados **SQL Server** do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).  
+- ✅ **Conteinerização** do projeto utilizando **Docker**, com configuração de:
   - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
-  - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (SQL Server e PostgreSQL).  
-- ✅ Implementação da **extração** dos dados transacionais via pipeline do Airflow, com arquivos extraídos salvos na pasta `data/extracted`.  
+  - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL**).
+- ✅ Implementação da **extração** dos dados transacionais via pipeline do **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
 
+---
 
-## 🚧 Próximos Passos:
-- ETL dos dados transacionais do SQL Server para o PostgreSQL via pipelines orquestradas no Airflow (continuação: **transformação e carga**).  
-- Implementação das camadas **staging** e **core**.  
-- Modelagem das **tabelas fato** e **dimensões analíticas** utilizando dbt.
+## 🚧 Próximos Passos
+
+- **Carga (Load)** dos dados extraídos do SQL Server para o PostgreSQL via pipeline orquestrada no Airflow.  
+- **Transformações (Transform)** dos dados no DBT, estruturando as camadas **staging**, **core**.  
+- Modelagem das **tabelas fato** e **dimensões analíticas** utilizando o DBT na camada camada **data mart**.  
+- Integração dos modelos com o **Power BI** para criação de dashboards e relaórios.  
+
+---
+
+### 🔁 Resumo da Arquitetura ELT
+
+1. **Extract:** Extração dos dados transacionais do SQL Server via Airflow. *(Etapa concluída ✅)*  
+2. **Load:** Carga dos dados brutos no Data Warehouse (PostgreSQL). *(Próxima etapa 🚧)*  
+3. **Transform:** Transformações e modelagem realizadas pelo DBT diretamente no Data Warehouse. *(Etapa futura 🔜)* 
+4. **Dataviz:** Consumo e análise dos dados no **Power BI**, com criação de dashboards e relatórios. *(Etapa futura 🔜)*  
 
 ---
 
