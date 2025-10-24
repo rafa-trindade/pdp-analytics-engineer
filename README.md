@@ -6,7 +6,7 @@ Este projeto realiza a **implementação, modelagem e consumo de um Data Warehou
 O projeto contempla:  
 - **Conteinerização da aplicação** com **Docker**, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, DBT);  
 - **Orquestração de pipelines ELT** utilizando o **Apache Airflow**;  
-- **Transformação e organização dos dados em camadas** utilizando o **DBT**:
+- **Transformação, documentação e organização dos dados em camadas** utilizando o **DBT**:
   - **Staging:** armazenamento de dados brutos carregados diretamente das fontes transacionais;  
   - **Core:** tratamento, padronização e integração dos dados, formando a base consolidada;  
   - **Data Mart:** modelagem analítica **OLAP**, composta por **tabelas fato** e **tabelas dimensão**, voltada ao consumo em dashboards e relatórios;  
