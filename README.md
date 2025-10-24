@@ -10,7 +10,7 @@ O projeto contempla:
   - **Core:** tratamento, padronização e integração dos dados, formando a base consolidada;  
   - **Data Mart:** modelagem analítica **OLAP**, composta por **tabelas fato** e **tabelas dimensão**, voltada ao consumo em dashboards e relatórios;  
   - **Conteinerização da aplicação** com **Docker**, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, dbt);  
-- **Criação de dashboards e análises interativas** no **Power BI**, apoiando a tomada de decisão.
+- Consumo e análise dos dados no **Power BI**, com desenvolvimento de dashboards e relatórios.
 
 ---
 
@@ -39,7 +39,7 @@ O projeto contempla:
 1. **Extract:** Extração dos dados transacionais do SQL Server via Airflow. *(Etapa concluída ✅)*  
 2. **Load:** Carga dos dados brutos no Data Warehouse (PostgreSQL). *(Próxima etapa 🚧)*  
 3. **Transform:** Transformações e modelagem realizadas pelo DBT diretamente no Data Warehouse. *(Etapa futura 🔜)* 
-4. **Dataviz:** Consumo e análise dos dados no **Power BI**, com criação de dashboards e relatórios. *(Etapa futura 🔜)*  
+4. **Dataviz:** Consumo e análise dos dados no **Power BI**, com desenvolvimento de dashboards e relatórios. *(Etapa futura 🔜)*  
 
 ---
 
