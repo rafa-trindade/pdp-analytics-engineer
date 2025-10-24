@@ -14,6 +14,7 @@ O projeto contempla:
 - **Conteinerização da aplicação** com Docker, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, dbt);  
 - **Criação de dashboards e análises interativas** no Power BI, apoiando a tomada de decisão.
 
+---
 
 ## 📍 Progresso do Projeto
 
