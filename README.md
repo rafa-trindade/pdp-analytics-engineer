@@ -18,7 +18,7 @@ O projeto contempla:
 - ✅ **Conteinerização** do projeto utilizando **Docker**, com configuração de:
   - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
   - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL** + **pgAdmin**).
-- ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline do **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
+- ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline orquestrada no **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
 - ✅ Implementação da **Carga (Load)** dos dados extraídos do SQL Server para a camada **staging** do Data Warehouse (PostgreSQL) via pipeline orquestrada no **Airflow**.  
 
 ---
@@ -34,7 +34,7 @@ O projeto contempla:
 ### 🔁 Resumo da Arquitetura ELT e Dataviz:
 
 1. **Extract:** Extração dos dados transacionais do SQL Server via Airflow. *(Etapa concluída ✅)*  
-2. **Load:** Carga dos dados brutos na camada **staging** do Data Warehouse (PostgreSQL). *(Etapa concluída ✅)*
+2. **Load:** Carga dos dados brutos na camada **staging** do Data Warehouse (PostgreSQL) via Airflow. *(Etapa concluída ✅)*
 3. **Transform:** Transformações e modelagem realizadas pelo DBT diretamente no Data Warehouse. *(Etapa futura 🔜)* 
 4. **Dataviz:** Consumo e análise dos dados no **Power BI**, com desenvolvimento de dashboards e relatórios. *(Etapa futura 🔜)*  
 
