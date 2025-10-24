@@ -17,5 +17,3 @@ venv/
 
 # Logs
 *.log
-airflow/logs/
-logs/
