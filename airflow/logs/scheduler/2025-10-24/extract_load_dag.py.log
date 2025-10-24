@@ -1,7 +1,0 @@
-[2025-10-24T00:00:10.987+0000] {processor.py:161} INFO - Started process (PID=505) to work on /opt/airflow/dags/extract_load_dag.py
-[2025-10-24T00:00:10.989+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/extract_load_dag.py for tasks to queue
-[2025-10-24T00:00:10.991+0000] {logging_mixin.py:188} INFO - [2025-10-24T00:00:10.991+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/extract_load_dag.py
-[2025-10-24T00:00:11.015+0000] {processor.py:840} INFO - DAG(s) 'extract_load_dag' retrieved from /opt/airflow/dags/extract_load_dag.py
-[2025-10-24T00:00:11.036+0000] {logging_mixin.py:188} INFO - [2025-10-24T00:00:11.036+0000] {dag.py:3089} INFO - Sync 1 DAGs
-[2025-10-24T00:00:11.047+0000] {logging_mixin.py:188} INFO - [2025-10-24T00:00:11.047+0000] {dag.py:3947} INFO - Setting next_dagrun for extract_load_dag to None, run_after=None
-[2025-10-24T00:00:11.073+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/extract_load_dag.py took 0.092 seconds

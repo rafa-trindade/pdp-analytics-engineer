@@ -6,11 +6,12 @@
 Este projeto realiza a **implementação, modelagem e consumo de um Data Warehouse** utilizando **Airflow**, **DBT** e **Power BI**, integrando dados transacionais do projeto [pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem).  
 
 O projeto contempla:  
-- **Orquestração de pipelines ETL/ELT** utilizando o Apache Airflow;  
+- **Orquestração de pipelines ETL** utilizando o Apache Airflow;  
 - **Transformação e organização dos dados em camadas:**  
   - **Staging:** armazenamento de dados brutos provenientes das fontes transacionais;  
   - **Core:** tratamento, padronização e integração dos dados, formando a base consolidada;  
   - **Data Mart:** modelagem analítica voltada ao consumo em dashboards e relatórios;  
+- **Conteinerização da aplicação** com Docker, garantindo isolamento, portabilidade e facilidade de execução dos serviços (Airflow, PostgreSQL, dbt);  
 - **Criação de dashboards e análises interativas** no Power BI, apoiando a tomada de decisão.
 
 
@@ -18,10 +19,14 @@ O projeto contempla:
 
 - ✅ Criação das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
 - ✅ Ingestão de dados transacionais fictícios no banco de dados do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).
+- ✅ **Conteinerização** do projeto utilizando Docker, com configuração de:
+  - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
+  - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (SQL Server e PostgreSQL).  
+- ✅ Implementação da **extração** dos dados transacionais via pipeline do Airflow, com arquivos extraídos salvos na pasta `data/extracted`.  
 
 
 ## 🚧 Próximos passos:
-- ELT dos dados transacionais do SQL Server para o PostgreSQL via pipelines orquestradas no Airflow.  
+- ETL dos dados transacionais do SQL Server para o PostgreSQL via pipelines orquestradas no Airflow (continuação: **transformação e carga**).  
 - Implementação das camadas **staging** e **core**.  
 - Modelagem das **tabelas fato** e **dimensões analíticas** utilizando dbt.
 
@@ -32,15 +37,19 @@ O projeto contempla:
 **Ambiente:** Python 3.11  
 
 | Pacote            | Versão  | Observação |
-|--------------------|----------|-------------|
+|-------------------|---------|------------|
 | **pandas**         | 2.3.3    | Manipulação e transformação de dados |
 | **requests**       | 2.32.3   | Requisições HTTP e integração de APIs |
+| **python-dotenv**  | 1.0.1    | Carregamento de variáveis de ambiente do arquivo `.env` |
 | **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
 | **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
-| **apache-airflow** | 2.9.3    | Orquestração de pipelines ETL/ELT |
 
-💡 Airflow instalado com constraints oficiais:  
-`--constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.9.3/constraints-3.11.txt`
+## ⚡ Construir e subir os containers do projeto
+
+```bash
+docker-compose build airflow
+docker-compose up -d
+```
 
 ## 🗂️ Estrutura do Projeto
 

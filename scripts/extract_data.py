@@ -33,7 +33,7 @@ def extract_from_sqlserver():
     
     try:
         conn = pyodbc.connect(conn_str)
-        print("✅ Conexão com o SQL Server estabelecida com sucesso!")
+        print("Conexão com o SQL Server estabelecida com sucesso!")
         
         for table in tables:
             print(f"📥 Extraindo tabela: {table} ...")
@@ -44,14 +44,14 @@ def extract_from_sqlserver():
             file_path = os.path.join(output_dir, file_name)
             
             df.to_csv(file_path, index=False, encoding="utf-8-sig")
-            print(f"✅ {table} salva em: {file_path} (linhas: {len(df)})")
+            print(f"{table} salva em: {file_path} (linhas: {len(df)})")
         
         conn.close()
-        print("✅ Extração concluída com sucesso!")
-        print(f"📂 Arquivos disponíveis em: {output_dir}")
+        print("Extração concluída com sucesso!")
+        print(f"Arquivos disponíveis em: {output_dir}")
     
     except Exception as e:
-        print(f"❌ Erro na extração: {e}")
+        print(f"Erro na extração: {e}")
         raise
 
 if __name__ == "__main__":

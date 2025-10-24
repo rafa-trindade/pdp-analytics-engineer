@@ -63,7 +63,7 @@ def generate_dim_date():
     })
 
     df.to_csv(os.path.join(SEEDS_PATH, "dim_data.csv"), index=False)
-    print(f"✅ dim_data.csv gerado com {len(df)} linhas.")
+    print(f"dim_data.csv gerado com {len(df)} linhas.")
 
 # -----------------------------
 # Dimensão de tempo
@@ -84,7 +84,7 @@ def generate_dim_time():
         ]
     })
     df.to_csv(os.path.join(SEEDS_PATH, "dim_tempo.csv"), index=False)
-    print(f"✅ dim_tempo.csv gerado com {len(df)} linhas.")
+    print(f"dim_tempo.csv gerado com {len(df)} linhas.")
 
 
 def generate_seeds():
