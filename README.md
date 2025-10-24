@@ -19,12 +19,12 @@ O projeto contempla:
   - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
   - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL** + **pgAdmin**).
 - ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline do **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
+- ✅ Implementação da **Carga (Load)** dos dados extraídos do SQL Server para o PostgreSQL via pipeline orquestrada no Airflow.  
 
 ---
 
 ## 🚧 Próximos Passos:
 
-- **Carga (Load)** dos dados extraídos do SQL Server para o PostgreSQL via pipeline orquestrada no Airflow.  
 - **Transformações (Transform)** dos dados no DBT, estruturando as camadas **staging**, **core**.  
 - Modelagem das **tabelas fato** e **dimensões analíticas** utilizando o DBT na camada camada **data mart**.  
 - Consumo dos modelos com o **Power BI** para criação de dashboards e relaórios.  
@@ -43,14 +43,20 @@ O projeto contempla:
 ## ⚡ Inicialização do ambiente com Docker:
 
 ```bash
-docker-compose build airflow
+docker-compose build
 docker-compose up -d
 ```
 
-## ⚡ Exemplo de execução manual da DAG de extração:
+## ⚡ Exemplo de execução manual para teste da DAG de extração:
 
 ```bash
 docker exec -it airflow airflow tasks test elt_dag extract_data 2025-10-24
+```
+
+## ⚡ Exemplo de execução manual para teste da DAG de carga:
+
+```bash
+docker exec -it airflow airflow tasks test elt_dag load_data 2025-10-24
 ```
 
 ---

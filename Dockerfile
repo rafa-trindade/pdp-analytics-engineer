@@ -18,11 +18,6 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && apt-get update \
     && ACCEPT_EULA=Y apt-get install -y msodbcsql17
 
-USER airflow
 
-# Pacotes Python para o extract
-RUN pip install --no-cache-dir \
-    pandas==2.3.3 \
-    pyodbc==5.3.0
-
+# Define diretório de trabalho do Airflow
 WORKDIR /opt/airflow
