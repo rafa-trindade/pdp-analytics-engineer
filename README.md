@@ -57,7 +57,7 @@ docker exec -it airflow airflow tasks test elt_dag extract_data 2025-10-24
 
 ## 📦 Bibliotecas Utilizadas:
 
-**Ambiente:** Python 3.11  
+**Ambiente:** Python 3.11 + Airflow 2.9.3
 
 | Pacote            | Versão  | Observação |
 |-------------------|---------|------------|
