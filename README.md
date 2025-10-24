@@ -80,7 +80,6 @@ pdp-dw-powerbi/
 ├── config/                  # Arquivos de configuração do projeto
 ├── data/                    # Dados brutos e processados
 │   ├── extracted/           # Dados extraídos das fontes
-│   └── processed/           # Dados transformados e preparados para load
 ├── dbt/                     # Projeto DBT
 │   ├── models/              
 │   │   ├── 01_staging/      # Modelos staging (limpeza e padronização de dados)
