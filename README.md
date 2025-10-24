@@ -44,7 +44,7 @@ O projeto contempla:
 | **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
 | **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
 
-## ⚡ Construir e subir os containers do projeto
+## ⚡ Iniciar o ambiente com Docker
 
 ```bash
 docker-compose build airflow
@@ -56,11 +56,13 @@ docker-compose up -d
 ```text
 pdp-dw-powerbi/
 ├── airflow/                 # Orquestração de pipelines ETL/ELT com Airflow
-│   └── dags/                # Definição dos DAGs
+│   ├── dags/                # Definição dos DAGs
+│   ├── logs/                # Armazenamento de logs de execução dos DAGs
+│   └── plugins/             # Plugins customizados do Airflow
 ├── config/                  # Arquivos de configuração do projeto
 ├── data/                    # Dados brutos e processados
-│   ├── 01_raw/              # Dados originais importados das fontes
-│   └── 02_processed/        # Dados transformados e preparados para DBT
+│   ├── extracted/           # Dados extraídos das fontes
+│   └── processed/           # Dados transformados e preparados para load
 ├── dbt/                     # Projeto DBT
 │   ├── models/              
 │   │   ├── 01_staging/      # Modelos staging (limpeza e padronização de dados)
@@ -77,8 +79,11 @@ pdp-dw-powerbi/
 │   └── data_dictionary.md   # Dicionário de dados
 ├── reports/                 # Relatórios Power BI exportados
 ├── scripts/                 # Pipelines ETL e scripts auxiliares (ex.: geração de seeds via Python)
-├── main.py                  # Script principal para execução de pipelines
-├── README.md                # Documentação inicial do projeto
+├── .env                     # Variáveis de ambiente do projeto
+├── docker-compose.yml       # Configuração para execução de containers Docker
+├── Dockerfile               # Definições da imagem Docker do projeto
+├── main.py                  # Script para execução local
+├── README.md                # Documentação do projeto
 └── requirements.txt         # Dependências Python
 ```
 
