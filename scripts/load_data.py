@@ -4,15 +4,22 @@ from sqlalchemy import create_engine, text
 from config.db_config import POSTGRES_CONFIG
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'extracted')
+STAGING_SCHEMA = "staging"  # ✅ Schema de destino
 
 def get_engine():
     cfg = POSTGRES_CONFIG
     conn_str = f"postgresql+psycopg2://{cfg['user']}:{cfg['password']}@{cfg['host']}:{cfg['port']}/{cfg['database']}"
     return create_engine(conn_str)
 
+def ensure_schema_exists(engine, schema_name):
+    """Cria o schema staging se não existir."""
+    with engine.begin() as conn:
+        conn.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema_name};"))
+
 def load_csv_to_postgres(engine, csv_path):
     table_name = os.path.splitext(os.path.basename(csv_path))[0].lower()
-    print(f"\n🔹 Processando {csv_path} → tabela {table_name}")
+    full_table_name = f'{STAGING_SCHEMA}."{table_name}"'  # ✅ usar schema
+    print(f"\n🔹 Processando {csv_path} → tabela {full_table_name}")
 
     df = pd.read_csv(csv_path)
     if df.empty:
@@ -28,9 +35,10 @@ def load_csv_to_postgres(engine, csv_path):
         raise ValueError(f"Nenhuma coluna de ID encontrada no CSV {csv_path}")
 
     with engine.begin() as conn:
+        # Criar tabela dentro do schema staging
         columns_def = ", ".join([f'"{c}" TEXT' for c in df.columns])
         create_sql = f"""
-        CREATE TABLE IF NOT EXISTS "{table_name}" (
+        CREATE TABLE IF NOT EXISTS {full_table_name} (
             {columns_def},
             PRIMARY KEY ("{id_col}")
         );
@@ -44,25 +52,18 @@ def load_csv_to_postgres(engine, csv_path):
             with open(tmp_path, "r", encoding="utf-8") as f:
                 cur.copy_expert(
                     f"""
-                    COPY "{table_name}" ({', '.join([f'"{c}"' for c in df.columns])})
+                    COPY {full_table_name} ({', '.join([f'"{c}"' for c in df.columns])})
                     FROM STDIN WITH CSV;
                     """,
                     f
                 )
             conn.connection.commit()
 
-        conflict_insert_sql = f"""
-        INSERT INTO "{table_name}" ({', '.join([f'"{c}"' for c in df.columns])})
-        SELECT {', '.join([f'"{c}"' for c in df.columns])}
-        FROM "{table_name}"
-        ON CONFLICT ("{id_col}") DO NOTHING;
-        """
-        conn.execute(text(conflict_insert_sql))
-
-        print(f"Carga de {len(df)} linhas concluída (tabela: {table_name})")
+        print(f"Carga de {len(df)} linhas concluída → {full_table_name}")
 
 def main():
     engine = get_engine()
+    ensure_schema_exists(engine, STAGING_SCHEMA)  # ✅ Garante o schema antes
 
     if not os.path.exists(DATA_PATH):
         print(f"Pasta {DATA_PATH} não encontrada.")
@@ -77,7 +78,7 @@ def main():
         try:
             load_csv_to_postgres(engine, csv_file)
         except Exception as e:
-            print(f"Erro ao processar {csv_file}: {e}")
+            print(f"❌ Erro ao processar {csv_file}: {e}")
 
 if __name__ == "__main__":
     main()
