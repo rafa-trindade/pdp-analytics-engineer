@@ -18,7 +18,7 @@ O projeto contempla:
 ## 📍 Progresso do Projeto
 
 - ✅ Criação das dimensões `dim_date` e `dim_time` via Python que serão utilizadas como **seeds** no DBT.  
-- ✅ Ingestão de dados transacionais fictícios no banco de dados do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).
+- ✅ Ingestão de dados transacionais fictícios no banco de dados SQL Server do projet [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).
 - ✅ **Conteinerização** do projeto utilizando Docker, com configuração de:
   - **Dockerfile** para instalar dependências necessárias e preparar o container do Airflow.
   - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (SQL Server e PostgreSQL).  
