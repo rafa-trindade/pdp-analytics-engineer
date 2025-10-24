@@ -40,20 +40,6 @@ O projeto contempla:
 
 ---
 
-## 📦 Bibliotecas Utilizadas:
-
-**Ambiente:** Python 3.11  
-
-| Pacote            | Versão  | Observação |
-|-------------------|---------|------------|
-| **pandas**         | 2.3.3    | Manipulação e transformação de dados |
-| **requests**       | 2.32.3   | Requisições HTTP e integração de APIs |
-| **python-dotenv**  | 1.0.1    | Carregamento de variáveis de ambiente do arquivo `.env` |
-| **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
-| **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
-
----
-
 ## ⚡ Inicialização do ambiente com Docker:
 
 ```bash
@@ -66,6 +52,20 @@ docker-compose up -d
 ```bash
 docker exec -it airflow airflow tasks test elt_dag extract_data 2025-10-24
 ```
+
+---
+
+## 📦 Bibliotecas Utilizadas:
+
+**Ambiente:** Python 3.11  
+
+| Pacote            | Versão  | Observação |
+|-------------------|---------|------------|
+| **pandas**         | 2.3.3    | Manipulação e transformação de dados |
+| **requests**       | 2.32.3   | Requisições HTTP e integração de APIs |
+| **python-dotenv**  | 1.0.1    | Carregamento de variáveis de ambiente do arquivo `.env` |
+| **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
+| **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
 
 ---
 
