@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Instala o driver ODBC do SQL Server
+# Driver ODBC do SQL Server
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
@@ -20,7 +20,7 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 
 USER airflow
 
-# Pacotes Python essenciais apenas para o extract
+# Pacotes Python para o extract
 RUN pip install --no-cache-dir \
     pandas==2.3.3 \
     pyodbc==5.3.0
