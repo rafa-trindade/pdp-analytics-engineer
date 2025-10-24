@@ -65,13 +65,16 @@ docker exec -it airflow airflow tasks test elt_dag load_data 2025-10-24
 
 **Ambiente:** Python 3.11 + Airflow 2.9.3
 
-| Pacote            | Versão  | Observação |
-|-------------------|---------|------------|
-| **pandas**         | 2.3.3    | Manipulação e transformação de dados |
-| **requests**       | 2.32.3   | Requisições HTTP e integração de APIs |
-| **python-dotenv**  | 1.0.1    | Carregamento de variáveis de ambiente do arquivo `.env` |
-| **dbt-core**       | 1.10.13  | Transformações e modelagem no Data Warehouse |
-| **dbt-postgres**   | 1.9.1    | Adaptador DBT para PostgreSQL |
+| Pacote            | Versão      | Observação |
+|-------------------|------------|------------|
+| **pandas**        | 2.3.3      | Manipulação e transformação de dados |
+| **requests**      | 2.32.3     | Requisições HTTP e integração de APIs |
+| **python-dotenv** | 1.0.1      | Carregamento de variáveis de ambiente do arquivo `.env` |
+| **dbt-core**      | 1.10.13    | Transformações e modelagem no Data Warehouse |
+| **dbt-postgres**  | 1.9.1      | Adaptador DBT para PostgreSQL |
+| **SQLAlchemy**    | 2.0.22     | ORM e conexão com bancos de dados |
+| **psycopg2-binary** | 2.9.7   | Driver PostgreSQL para Python |
+| **pyodbc**        | 5.3.0      | Driver ODBC para conexão com diversos bancos |
 
 ---
 
