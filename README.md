@@ -9,7 +9,7 @@ O projeto contempla:
 - **Transformação, documentação e modelagem** utilizando o **DBT**:
 - **Consumo dos modelos analíticos** gerados pelo **DBT** no **Power BI**, garantindo uma **camada de visualização integrada** e **atualizações automatizadas** dos dashboards e relatórios.
 
-<img src="docs/diagrams/projeto.png" style="border-radius: 12px;" width="100%">
+![Projeto](docs/diagrams/projeto.png)
 
 ---
 
@@ -118,8 +118,7 @@ pdp-dw-powerbi/
 ---
 
 ## 🧩 Diagrama do Modelo OLTP:
-<img src="docs/diagrams/oltp_model.png" style="border-radius: 12px;" width="100%">
-
+![Diagrama OLTP](docs/diagrams/oltp_model.png)
 
 ## 🧠 Diagrama do Modelo OLAP:
-<img src="docs/diagrams/olap_model.png" style="border-radius: 15px;">
+![Diagrama OLAP](docs/diagrams/olap_model.png)
