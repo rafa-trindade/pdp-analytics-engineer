@@ -9,7 +9,7 @@ O projeto contempla:
 - **Transformação, documentação e modelagem** utilizando o **DBT**:
 - **Consumo dos modelos analíticos** gerados pelo **DBT** no **Power BI**, garantindo uma **camada de visualização integrada** e **atualizações automatizadas** dos dashboards e relatórios.
 
-![Projeto](docs/diagrams/projeto.png)
+![Projeto](docs/diagrams/projeto.png?v=1)
 
 ---
 
@@ -77,6 +77,7 @@ docker exec -it airflow airflow tasks test elt_dag load_data 2025-10-24
 | **SQLAlchemy**    | 2.0.22     | ORM e conexão com bancos de dados |
 | **psycopg2-binary** | 2.9.7   | Driver PostgreSQL para Python |
 | **pyodbc**        | 5.3.0      | Driver ODBC para conexão com diversos bancos |
+| **msodbcsql17** | Microsoft (APT) | Driver oficial ODBC do SQL Server para Linux |
 
 ---
 
@@ -118,7 +119,7 @@ pdp-dw-powerbi/
 ---
 
 ## 🧩 Diagrama do Modelo OLTP:
-![Diagrama OLTP](docs/diagrams/oltp_model.png)
+![Diagrama OLTP](docs/diagrams/oltp_model.png?v=1)
 
 ## 🧠 Diagrama do Modelo OLAP:
-![Diagrama OLAP](docs/diagrams/olap_model.png)
+![Diagrama OLAP](docs/diagrams/olap_model.png?v=1)
