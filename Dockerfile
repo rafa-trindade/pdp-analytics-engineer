@@ -18,12 +18,12 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && apt-get update \
     && ACCEPT_EULA=Y apt-get install -y msodbcsql17
 
-# Cria pasta de dados interna com permissão do airflow
+# Pasta de dados interna com permissão do airflow
 RUN mkdir -p /opt/airflow/data/extracted && chown -R airflow: /opt/airflow/data
 
 USER airflow
 
-# Instala dbt-core e adaptador para Postgres
+# dbt-core e adaptador para Postgres
 RUN pip install --no-cache-dir dbt-core dbt-postgres
 
 WORKDIR /opt/airflow
