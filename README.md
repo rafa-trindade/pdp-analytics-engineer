@@ -25,7 +25,7 @@ O projeto contempla:
 
 ## 🚧 Próximos Passos:
 
-- **Transformações (Transform)** dos dados no DBT, estruturando as camadas **staging**, **core**.  
+- **Transformações (Transform)** e modelagem dos dados no DBT, estruturando as camadas **staging**, **core**.  
 - Modelagem de tabelas analíticas a partir das **tabelas fato e dimensão** utilizando o DBT na camada **data mart**.  
 - Consumo dos modelos com o **Power BI** para criação de dashboards e relaórios.  
 
