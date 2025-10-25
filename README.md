@@ -118,7 +118,7 @@ pdp-dw-powerbi/
 ---
 
 ## 🧩 Diagrama do Modelo OLTP:
-<img src="docs/diagrams/oltp_model.png" style="border-radius: 15px;">
+<img src="docs/diagrams/oltp_model.png" style="border-radius: 12px;" width="100%">
 
 
 ## 🧠 Diagrama do Modelo OLAP:
