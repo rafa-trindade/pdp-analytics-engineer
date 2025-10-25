@@ -11,7 +11,6 @@ def extract_from_sqlserver():
         "clsHospedagem",
         "clsProduto",
         "clsConsumacao",
-        "clsMovimentacao"
     ]
     
     output_dir = "/opt/airflow/data/extracted"
