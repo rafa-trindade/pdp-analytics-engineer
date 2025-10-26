@@ -4,6 +4,8 @@ WITH base AS (
         h.cliente_id,
         cl.empresa_id,
         d_entrada.chave_data AS data_hospedagem_key,
+        COALESCE(CAST(h.hospedagem_qtd_diarias AS NUMERIC), 0) AS hospedagem_qtd_diarias,
+        COALESCE(CAST(h.hospedagem_qtd_pessoas AS NUMERIC), 0) AS hospedagem_qtd_pessoas,
         COALESCE(CAST(h.hospedagem_valor AS NUMERIC), 0) AS hospedagem_valor,
         COALESCE(cons.total_consumo, 0) AS total_consumo,
         (COALESCE(CAST(h.hospedagem_valor AS NUMERIC), 0) + COALESCE(cons.total_consumo, 0)) AS valor_total,

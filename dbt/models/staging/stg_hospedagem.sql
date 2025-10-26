@@ -5,6 +5,7 @@ WITH raw AS (
         "Cliente_Id" as cliente_id,
         "DataEntrada" as data_entrada,
         "DataSaida" as data_saida,
+        "QuantidadeDiaria" as hospedagem_qtd_diarias,
         "ValorTotal" as hospedagem_valor,
         "QuantidadePessoas" as hospedagem_qtd_pessoas
     FROM {{ source('raw', 'clshospedagem') }}
