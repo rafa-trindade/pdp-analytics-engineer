@@ -1,10 +1,14 @@
-WITH src AS (
+WITH base AS (
     SELECT
-        cliente_id,
-        cliente_nome,
-        cliente_data_cadastro,
-        empresa_id
-    FROM {{ source('staging', 'stg_cliente') }}
+        c.cliente_id,
+        c.empresa_id,
+        c.cliente_data_cadastro,
+        c.cliente_nome,
+        e.empresa_nome
+    FROM {{ source('staging', 'stg_cliente') }} c
+    LEFT JOIN {{ ref('dim_empresa') }} e
+        ON c.empresa_id = e.empresa_id
 )
 
-SELECT * FROM src
+SELECT * FROM base
+

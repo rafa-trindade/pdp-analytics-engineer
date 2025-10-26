@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 # API FERIADOS - https://api.invertexto.com/api-feriados
 # -----------------------------
 START_DATE = "2030-01-01"
-END_DATE = "2032-12-31"
+END_DATE = "2033-12-31"
 UF = "GO"
 API_KEY = "22137|SRHoo5bWW93micFMAvCc5fq8d60utocr"
 SEEDS_PATH = "dbt/seeds/"

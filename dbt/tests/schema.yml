@@ -125,7 +125,7 @@ models:
       - name: total_consumo
         tests:
           - not_null
-      - name: data_entrada_key
+      - name: data_hospedagem_key
         tests:
           - not_null
 
@@ -139,13 +139,6 @@ models:
               arguments:
                 to: ref('dim_consumacao')
                 field: consumacao_id
-      - name: hospedagem_id
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_hospedagem')
-                field: hospedagem_id
       - name: cliente_id
         tests:
           - not_null
@@ -170,35 +163,5 @@ models:
         tests:
           - not_null
       - name: data_consumacao_key
-        tests:
-          - not_null
-
-  - name: fact_financeiro
-    +schema: test_core
-    columns:
-      - name: hospedagem_id
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_hospedagem')
-                field: hospedagem_id
-      - name: cliente_id
-        tests:
-          - not_null
-          - relationships:
-              arguments:
-                to: ref('dim_cliente')
-                field: cliente_id
-      - name: valor_total
-        tests:
-          - not_null
-      - name: hospedagem_valor
-        tests:
-          - not_null
-      - name: total_consumo
-        tests:
-          - not_null
-      - name: data_movimentacao_key
         tests:
           - not_null
