@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, text
 from config.db_config import POSTGRES_CONFIG
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'extracted')
-STAGING_SCHEMA = "staging"
+RAW_SCHEMA = "raw"
 
 def get_engine():
     cfg = POSTGRES_CONFIG
@@ -18,7 +18,7 @@ def ensure_schema_exists(engine, schema_name):
 
 def load_csv_to_postgres(engine, csv_path):
     table_name = os.path.splitext(os.path.basename(csv_path))[0].lower()
-    full_table_name = f'{STAGING_SCHEMA}."{table_name}"'
+    full_table_name = f'{RAW_SCHEMA}."{table_name}"'
     print(f"\n🔹 Processando {csv_path} → tabela {full_table_name}")
 
     df = pd.read_csv(csv_path)
@@ -62,7 +62,7 @@ def load_csv_to_postgres(engine, csv_path):
 
 def main():
     engine = get_engine()
-    ensure_schema_exists(engine, STAGING_SCHEMA) 
+    ensure_schema_exists(engine, RAW_SCHEMA) 
 
     if not os.path.exists(DATA_PATH):
         print(f"Pasta {DATA_PATH} não encontrada.")

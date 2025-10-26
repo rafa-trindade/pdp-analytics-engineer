@@ -17,3 +17,7 @@ venv/
 
 # Logs
 *.log
+
+# DBT
+target/
+dbt_modules/

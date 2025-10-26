@@ -30,4 +30,9 @@ with DAG(
         bash_command=f"PYTHONPATH={PYTHONPATH} python {SCRIPT_LOAD}"
     )
 
-    extract_task >> load_task
+    dbt_staging_task = BashOperator(
+        task_id="dbt_run_staging",
+        bash_command="cd /opt/airflow/dbt && dbt run --models staging"
+    )
+
+    extract_task >> load_task >> dbt_staging_task
