@@ -2,6 +2,7 @@ WITH base AS (
     SELECT
         c.consumacao_id,
         cl.cliente_id,
+        e.empresa_id,
         p.produto_id,
         d.chave_data AS data_consumacao_key,
         c.quantidade_produto::INTEGER AS quantidade_produto,

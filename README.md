@@ -118,8 +118,9 @@ pdp-dw-powerbi/
 
 ---
 
+## 🧠 Diagrama do Modelo OLAP:
+![Diagrama OLAP](./docs/diagrams/olap-model-v4.png)
+
 ## 🧩 Diagrama do Modelo OLTP:
 ![Diagrama OLTP](./docs/diagrams/oltp-model-v4.png)
 
-## 🧠 Diagrama do Modelo OLAP:
-![Diagrama OLAP](./docs/diagrams/olap-model.png)

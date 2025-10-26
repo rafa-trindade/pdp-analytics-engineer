@@ -2,6 +2,7 @@ WITH base AS (
     SELECT
         h.hospedagem_id,
         h.cliente_id,
+        cl.empresa_id,
         d_entrada.chave_data AS data_hospedagem_key,
         COALESCE(CAST(h.hospedagem_valor AS NUMERIC), 0) AS hospedagem_valor,
         COALESCE(cons.total_consumo, 0) AS total_consumo,
