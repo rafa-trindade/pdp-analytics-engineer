@@ -35,4 +35,19 @@ with DAG(
         bash_command="cd /opt/airflow/dbt && dbt run --models staging"
     )
 
-    extract_task >> load_task >> dbt_staging_task
+    dbt_seed_task = BashOperator(
+        task_id="dbt_seed",
+        bash_command="cd /opt/airflow/dbt && dbt seed"
+    )
+
+    dbt_core_task = BashOperator(
+        task_id="dbt_run_core",
+        bash_command="cd /opt/airflow/dbt && dbt run --select core"
+    )
+
+    dbt_test_task = BashOperator(
+        task_id="dbt_test_core",
+        bash_command="cd /opt/airflow/dbt && dbt test --select core --store-failures"
+    )
+
+    extract_task >> load_task >> dbt_staging_task >> dbt_seed_task >> dbt_core_task >> dbt_test_task

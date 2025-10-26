@@ -24,7 +24,6 @@ models:
       +materialized: view    
 
     core:
-      +enabled: false      
       +schema: core          
       +materialized: table    
 
@@ -32,3 +31,12 @@ models:
       +enabled: false      
       +schema: marts          
       +materialized: table    
+
+seeds:
+  pdp_dw_powerbi:
+    dim_data:
+      +schema: core
+      +materialized: seed
+
+tests:
+  +schema: tests

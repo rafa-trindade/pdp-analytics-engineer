@@ -89,7 +89,7 @@ def generate_dim_time():
 
 def generate_seeds():
     generate_dim_date()
-    generate_dim_time()
+    #generate_dim_time()
 
 
 if __name__ == "__main__":
