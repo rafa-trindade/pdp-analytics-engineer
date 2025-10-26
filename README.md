@@ -21,7 +21,7 @@ O projeto contempla:
   - **Dockerfile** para instalar dependências necessárias e preparar o container.
   - **docker-compose.yml** para orquestrar o Airflow e os containers de banco de dados (**SQL Server** e **PostgreSQL** + **pgAdmin**).
 - ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline orquestrada no **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
-- ✅ Implementação da **Carga (Load)** dos dados extraídos do SQL Server para a camada **staging** do Data Warehouse (PostgreSQL) via pipeline orquestrada no **Airflow**.  
+- ✅ Implementação da **Carga (Load)** dos dados extraídos do SQL Server para a camada **raw** do Data Warehouse (PostgreSQL) via pipeline orquestrada no **Airflow**.  
 
 ---
 
@@ -36,7 +36,7 @@ O projeto contempla:
 ### 🔁 Resumo da Arquitetura ELT e Dataviz:
 
 1. **Extract:** Extração dos dados transacionais do SQL Server via Airflow. *(Etapa concluída ✅)*  
-2. **Load:** Carga dos dados brutos na camada **staging** do Data Warehouse (PostgreSQL) via Airflow. *(Etapa concluída ✅)*
+2. **Load:** Carga dos dados brutos na camada **raw** do Data Warehouse (PostgreSQL) via Airflow. *(Etapa concluída ✅)*
 3. **Transform:** Transformações e modelagem realizadas pelo DBT diretamente no Data Warehouse. *(Próxima etapa 🚧)* 
 4. **Dataviz:** Consumo e análise dos dados no **Power BI**, com desenvolvimento de dashboards e relatórios. *(Etapa futura 🔜)*  
 
@@ -94,9 +94,9 @@ pdp-dw-powerbi/
 │   ├── extracted/           # Dados extraídos das fontes
 ├── dbt/                     # Projeto DBT
 │   ├── models/              
-│   │   ├── 01_staging/      # Modelos staging (limpeza e padronização de dados)
-│   │   ├── 02_core/         # Modelos core (dados integrados e limpos)
-│   │   └── 03_marts/        # Modelos marts (tabelas para análise e dashboards)
+│   │   ├── staging/         # Modelos staging (limpeza e padronização de dados)
+│   │   ├── core/            # Modelos core (dados integrados e limpos)
+│   │   └── marts/           # Modelos marts (tabelas para análise e dashboards)
 │   ├── seeds/               # Seeds (ex.: dim_date, dim_time)
 │   ├── snapshots/           # Snapshots de tabelas para histórico de mudanças
 │   ├── tests/               # Testes de qualidade do DBT
