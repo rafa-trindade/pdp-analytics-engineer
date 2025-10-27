@@ -20,17 +20,68 @@ O **Airflow** é responsável pela orquestração dos pipelines de extração, c
 ## 🚧 Próximos Passos:
 
 - Modelagem de tabelas analíticas a partir das **tabelas fato e dimensão** utilizando o DBT na camada **mart**.  
-- Consumo dos modelos analíticos no **Power BI** para criação de dashboards e relaórios.  
-
-
-## 🔁 Resumo da Arquitetura ELT e Dataviz:
-
-1. **Extract:** Extração dos dados transacionais do SQL Server via Airflow. *(Etapa concluída ✅)*  
-2. **Load:** Carga dos dados brutos na camada **raw** do Data Warehouse (PostgreSQL) via Airflow. *(Etapa concluída ✅)*
-3. **Transform:** Transformações e modelagem realizadas pelo DBT diretamente no Data Warehouse. *(Em andamento 🚧)* 
-4. **Dataviz:** Consumo e análise dos dados no **Power BI**, com desenvolvimento de dashboards e relatórios. *(Próxima Etapa 🔜)*  
+- **Dataviz:** Consumo dos modelos analíticos no **Power BI** para criação de dashboards e relaórios.  
 
 ![projeto-pdp-dw-powerbi](./docs/diagrams/projeto-v5.png)
+
+___
+
+## 📊 Camada Marts - Data Warehouse *(em andamento 🚧)*:
+
+A camada **Marts** contém views analíticas derivadas das tabelas da camada **Core**. Cada subpasta organiza os modelos por **categoria de análise** ou **tipo de métrica**, facilitando a consulta e o consumo dos dados.
+
+## 🏦 Financeiro:
+
+## `dw_marts.receita_mensal`
+**Descrição:**  
+Apresenta a receita total mensal proveniente de hospedagens e consumos, consolidando ambas as fontes.
+
+**Tabelas utilizadas:** `fact_hospedagem` `fact_consumo` `dim_data`
+
+| Campo | Tipo | Descrição |
+|--------|-------|-----------|
+| **ano** | INT | Ano obtido via `dim_data` |
+| **mes** | INT | Mês obtido via `dim_data` |
+| **origem** | TEXT | `'HOSPEDAGEM'` ou `'CONSUMO'` conforme a tabela fato de origem |
+| **cmv** | BOOLEAN | `FALSE` para hospedagem, `TRUE` para consumo |
+| **total_receita** | NUMERIC | Soma dos valores (`hospedagem_valor` ou `valor_consumacao`) agrupados por mês/ano |
+
+---
+
+## `dw_marts.despesa_mensal`
+**Descrição:**  
+Consolida as despesas mensais, agrupadas por tipo de despesa (campo `topo`).
+
+**Tabelas utilizadas:** `dim_despesas`
+
+| Campo | Tipo | Descrição |
+|--------|-------|-----------|
+| **ano** | INT | Ano extraído do campo `data` da `dim_despesas` |
+| **mes** | INT | Mês extraído do campo `data` da `dim_despesas` |
+| **tipo_despesa** | TEXT | Agrupamento pelo campo `tipo` da `dim_despesas` |
+| **total_despesa** | NUMERIC | Soma dos valores (`valor`) para o mesmo tipo/mês/ano |
+
+---
+
+## 🏨 Hospedagem:
+
+## `dw_marts.hospedagem_resumo`
+**Descrição:**  
+Resumo diário das receitas de hospedagens, com observações sobre feriados e finais de semana.
+
+**Tabelas utilizadas:** `fact_hospedagem` `dim_data`
+
+**Campos resultantes:**
+
+| Campo | Tipo | Descrição |
+|--------|-------|-----------|
+| **data** | DATE | Data da hospedagem |
+| **hospedagem** | NUMERIC | Soma de `hospedagem_valor` por data |
+| **consumo** | NUMERIC | Soma de `total_consumo` por data |
+| **observacao** | TEXT | Nome do feriado, `'FDS'` ou `'-'` validado na `dim_data`|
+| **quantidade_hospedes** | INT | Soma de `hospedagem_qtd_pessoas` |
+| **total** | NUMERIC | Soma de `hospedagem + consumo` |
+| **apt** | NUMERIC(10,2) | Valor médio de hospedagem por hóspede, arredondado para 2 casas decimais |
 
 ---
 

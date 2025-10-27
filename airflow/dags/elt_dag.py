@@ -50,4 +50,10 @@ with DAG(
         bash_command="cd /opt/airflow/dbt && dbt test --select core --store-failures"
     )
 
+    dbt_marts_task = BashOperator(
+        task_id="dbt_run_marts",
+        bash_command="cd /opt/airflow/dbt && dbt run --select marts"
+    )
+
+
     extract_task >> load_task >> dbt_staging_task >> dbt_seed_task >> dbt_core_task >> dbt_test_task
