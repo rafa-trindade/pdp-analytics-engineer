@@ -85,6 +85,14 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 
 ---
 
+## 🧠 Diagrama do Modelo OLAP:
+![Diagrama OLAP](./docs/diagrams/olap-model-v3.png)
+
+## 🧩 Diagrama do Modelo OLTP:
+![Diagrama OLTP](./docs/diagrams/oltp-model-v4.png)
+
+---
+
 ## ⚡ Inicialização do ambiente com Docker:
 
 ```bash
@@ -157,10 +165,4 @@ pdp-dw-powerbi/
 ├── README.md                # Documentação do projeto
 └── requirements.txt         # Dependências Python
 ```
-
-## 🧠 Diagrama do Modelo OLAP:
-![Diagrama OLAP](./docs/diagrams/olap-model-v3.png)
-
-## 🧩 Diagrama do Modelo OLTP:
-![Diagrama OLTP](./docs/diagrams/oltp-model-v4.png)
 
