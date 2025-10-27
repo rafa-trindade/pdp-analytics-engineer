@@ -1,7 +1,3 @@
-{{ config(
-    materialized='view'
-) }}
-
 WITH base AS (
 
     -- receita de hospedagem

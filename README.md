@@ -78,6 +78,7 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 | **data** | DATE | Data da hospedagem |
 | **hospedagem** | NUMERIC | Soma de `hospedagem_valor` por data |
 | **consumo** | NUMERIC | Soma de `total_consumo` por data |
+| **dia_semana** | TEXT | Nome do dia da semana correspondente à data, vindo da `dim_data` |
 | **observacao** | TEXT | Nome do feriado, `'FDS'` ou `'-'` validado na `dim_data`|
 | **quantidade_hospedes** | INT | Soma de `hospedagem_qtd_pessoas` |
 | **total** | NUMERIC | Soma de `hospedagem + consumo` |

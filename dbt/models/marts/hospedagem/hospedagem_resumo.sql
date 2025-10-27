@@ -7,7 +7,8 @@ WITH base AS (
         fh.hospedagem_qtd_pessoas,
         d.feriado,
         d.nome_feriado,
-        d.fim_de_semana
+        d.fim_de_semana,
+        d.nome_dia_semana AS dia_semana
     FROM {{ source('core', 'fact_hospedagem') }} fh
     JOIN {{ source('core', 'dim_data') }} d
         ON fh.data_hospedagem_key = d.chave_data
@@ -23,7 +24,8 @@ WITH base AS (
             WHEN BOOL_OR(feriado) THEN MAX(nome_feriado)
             WHEN BOOL_OR(fim_de_semana) THEN 'FDS'
             ELSE '-'
-        END AS observacao
+        END AS observacao,
+        MAX(dia_semana) AS dia_semana
     FROM base
     GROUP BY data
 )
@@ -32,6 +34,7 @@ SELECT
     data,
     hospedagem,
     consumo,
+    dia_semana,
     observacao,
     quantidade_hospedes,
     (hospedagem + consumo) AS total,
