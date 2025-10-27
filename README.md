@@ -141,8 +141,7 @@ pdp-dw-powerbi/
 │   ├── logs/                # Armazenamento de logs de execução dos DAGs
 │   └── plugins/             # Plugins customizados do Airflow
 ├── config/                  # Arquivos de configuração do projeto
-├── data/                    # Dados brutos e processados
-│   ├── extracted/           # Dados extraídos das fontes
+├── data/                    # Dados brutos
 ├── dbt/                     # Projeto DBT
 │   ├── models/              
 │   │   ├── staging/         # Modelos staging (limpeza e padronização de dados)
