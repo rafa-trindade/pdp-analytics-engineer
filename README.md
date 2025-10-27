@@ -1,7 +1,10 @@
 # 🗄️ pdp-dw-powerbi
+
 [![Projeto Badge](https://img.shields.io/badge/-pdp--hospedagem-2B5482?style=flat-square&logo=github&logoColor=fff)](https://github.com/rafa-trindade/pdp-hospedagem)
 
-Este projeto realiza a **implementação, modelagem e consumo de um Data Warehouse** utilizando **Airflow**, **DBT** e **Power BI**, integrando dados transacionais do projeto [pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem).
+Este projeto tem como objetivo **implementar, modelar e consumir um Data Warehouse** a partir de dados transacionais do projeto **[pdp-hospedagem](https://github.com/rafa-trindade/pdp-hospedagem)**, utilizando uma arquitetura moderna de dados. Para isso, são empregadas as ferramentas **Apache Airflow**, **DBT (Data Build Tool)** e **Power BI**, integradas em um fluxo de ponta a ponta.
+
+O **Airflow** é responsável pela orquestração dos pipelines de extração, carregamento e transformação dos dados; o **DBT** atua na transformação e modelagem dos dados dentro do Data Warehouse, aplicando boas práticas de engenharia analítica; e o **Power BI** é utilizado na camada de visualização e análise, permitindo a criação de dashboards interativos e indicadores de desempenho.
 
 ## 📍 Progresso do Projeto:
 
