@@ -7,7 +7,11 @@ WITH base AS (
         d.chave_data AS data_consumacao_key,
         c.quantidade_produto::INTEGER AS quantidade_produto,
         c.valor_produto::NUMERIC AS valor_produto,
-        c.valor_consumacao::NUMERIC AS valor_consumacao
+        c.valor_consumacao::NUMERIC AS valor_consumacao,
+        d.nome_dia_semana AS dia_semana,
+        d.fim_de_semana,
+        d.feriado,
+        d.nome_feriado
     FROM {{ ref('dim_consumacao') }} c
     LEFT JOIN {{ ref('dim_hospedagem') }} h
         ON c.hospedagem_id = h.hospedagem_id

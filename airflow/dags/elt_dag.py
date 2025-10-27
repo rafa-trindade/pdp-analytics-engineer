@@ -32,7 +32,7 @@ with DAG(
 
     dbt_staging_task = BashOperator(
         task_id="dbt_run_staging",
-        bash_command="cd /opt/airflow/dbt && dbt run --models staging"
+        bash_command="cd /opt/airflow/dbt && dbt run --select staging"
     )
 
     dbt_seed_task = BashOperator(

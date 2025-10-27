@@ -9,3 +9,4 @@ sources:
       - name: stg_hospedagem
       - name: stg_produto
       - name: stg_consumacao
+      - name: stg_apartamento
