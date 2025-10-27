@@ -9,7 +9,7 @@ O projeto contempla:
 - **Transformação, documentação e modelagem** utilizando o **DBT**:
 - **Consumo dos modelos analíticos** gerados pelo **DBT** no **Power BI**, garantindo uma **camada de visualização integrada** e **atualizações automatizadas** dos dashboards e relatórios.
 
-![projeto-pdp-dw-powerbi](./docs/diagrams/projeto-v4.png)
+![projeto-pdp-dw-powerbi](./docs/diagrams/projeto-v5.png)
 
 ---
 
