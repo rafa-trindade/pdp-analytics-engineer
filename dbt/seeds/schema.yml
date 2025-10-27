@@ -25,3 +25,18 @@ seeds:
         data_type: boolean
       - name: nome_feriado
         data_type: text
+
+  - name: dim_despesas
+    columns:
+      - name: data_key
+        data_type: integer
+      - name: data
+        data_type: date
+      - name: categoria
+        data_type: text
+      - name: tipo
+        data_type: text
+      - name: descricao
+        data_type: text
+      - name: valor
+        data_type: numeric

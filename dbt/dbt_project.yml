@@ -30,13 +30,21 @@ models:
     marts:
       +enabled: false      
       +schema: marts          
-      +materialized: table    
+      +materialized: view    
 
 seeds:
   pdp_dw_powerbi:
     dim_data:
       +schema: core
       +materialized: seed
+    
+    dim_despesas:
+      +schema: core
+      +materialized: seed
+      +column_types:
+        chave_data: integer
+        data: date
+        valor: numeric
 
 tests:
   +schema: tests

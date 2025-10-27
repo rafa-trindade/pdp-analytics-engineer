@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import os
+from pathlib import Path
 from datetime import datetime, timedelta
 
 # -----------------------------
@@ -86,10 +87,30 @@ def generate_dim_time():
     df.to_csv(os.path.join(SEEDS_PATH, "dim_tempo.csv"), index=False)
     print(f"dim_tempo.csv gerado com {len(df)} linhas.")
 
+def process_pousada_despesas():
+    input_path = Path("data/utils/pousada_despesas.xlsx")
+    output_path = Path("dbt/seeds/dim_despesas.csv")
+    
+    df = pd.read_excel(input_path, sheet_name="despesas", engine="openpyxl")
+    
+    df['data_key'] = pd.to_datetime(df['data'], dayfirst=True).dt.strftime('%Y%m%d').astype(int)
+    
+    df['data'] = pd.to_datetime(df['data'], dayfirst=True).dt.strftime('%Y-%m-%d')
+    
+    if 'empresa' in df.columns:
+        df = df.drop(columns=['empresa'])
+    
+    df['valor'] = pd.to_numeric(df['valor'], errors='coerce')
+    
+    df.to_csv(output_path, index=False, sep=',', encoding='utf-8')
+    
+    print(f"dim_despesas.csv gerado com {len(df)} linhas.")
+
 
 def generate_seeds():
     generate_dim_date()
     #generate_dim_time()
+    process_pousada_despesas()
 
 
 if __name__ == "__main__":
