@@ -10,11 +10,7 @@ WITH base AS (
         COALESCE(CAST(h.hospedagem_valor AS NUMERIC), 0) AS hospedagem_valor,
         COALESCE(cons.total_consumo, 0) AS total_consumo,
         (COALESCE(CAST(h.hospedagem_valor AS NUMERIC), 0) + COALESCE(cons.total_consumo, 0)) AS valor_total,
-        COALESCE(cons.total_qtd_produtos, 0)::INTEGER AS total_qtd_produtos,
-        d_entrada.nome_dia_semana AS dia_semana,
-        d_entrada.fim_de_semana,
-        d_entrada.feriado,
-        d_entrada.nome_feriado
+        COALESCE(cons.total_qtd_produtos, 0)::INTEGER AS total_qtd_produtos
     FROM {{ ref('dim_hospedagem') }} h
     LEFT JOIN {{ ref('dim_cliente') }} cl
         ON h.cliente_id = cl.cliente_id
