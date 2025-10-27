@@ -82,7 +82,7 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 | **observacao** | TEXT | Nome do feriado, `'FDS'` ou `'-'` validado na `dim_data`|
 | **quantidade_hospedes** | INT | Soma de `hospedagem_qtd_pessoas` |
 | **total** | NUMERIC | Soma de `hospedagem + consumo` |
-| **apt** | NUMERIC(10,2) | Valor médio de hospedagem por hóspede, arredondado para 2 casas decimais |
+| **apt** | NUMERIC(10,2) | Valor médio de hospedagem por hóspede |
 
 ---
 
