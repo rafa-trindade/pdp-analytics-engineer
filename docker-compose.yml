@@ -27,7 +27,7 @@ services:
         condition: service_healthy
 
   postgres_dw:
-    image: postgres:15
+    image: postgres:16
     container_name: postgres_dw
     restart: always
     environment:
@@ -35,6 +35,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
       PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_HOST_AUTH_METHOD: md5
     ports:
       - "5432:5432"
     volumes:

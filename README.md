@@ -40,8 +40,7 @@ Apresenta a receita total mensal proveniente de hospedagens e consumos, consolid
 
 | Campo | Tipo | Descrição |
 |--------|-------|-----------|
-| **ano** | INT | Ano obtido via `dim_data` |
-| **mes** | INT | Mês obtido via `dim_data` |
+| **data** | DATE | Data obtida via `dim_data` (campo `data`) |
 | **origem** | TEXT | `'HOSPEDAGEM'` ou `'CONSUMO'` conforme a tabela fato de origem |
 | **cmv** | BOOLEAN | `FALSE` para hospedagem, `TRUE` para consumo |
 | **total_receita** | NUMERIC | Soma dos valores (`hospedagem_valor` ou `valor_consumacao`) agrupados por mês/ano |
@@ -56,6 +55,7 @@ Consolida as despesas mensais, agrupadas por tipo de despesa (campo `topo`).
 
 | Campo | Tipo | Descrição |
 |--------|-------|-----------|
+| **data** | DATE | Data da despesa conforme registrada na dim_despesas |
 | **ano** | INT | Ano extraído do campo `data` da `dim_despesas` |
 | **mes** | INT | Mês extraído do campo `data` da `dim_despesas` |
 | **tipo_despesa** | TEXT | Agrupamento pelo campo `tipo` da `dim_despesas` |
