@@ -32,7 +32,7 @@ A camada **Marts** contém views analíticas derivadas das tabelas da camada **C
 
 ## 🏦 Financeiro:
 
-## `dw_marts.receita_mensal`
+## `dw_marts.financeiro_receita_mensal`
 **Descrição:**  
 Apresenta a receita total mensal proveniente de hospedagens e consumos, consolidando ambas as fontes.
 
@@ -47,7 +47,7 @@ Apresenta a receita total mensal proveniente de hospedagens e consumos, consolid
 
 ---
 
-## `dw_marts.despesa_mensal`
+## `dw_marts.financeiro_despesa_mensal`
 **Descrição:**  
 Consolida as despesas mensais, agrupadas por tipo de despesa (campo `topo`).
 
