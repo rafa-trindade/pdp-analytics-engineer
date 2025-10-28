@@ -56,8 +56,6 @@ Consolida as despesas mensais, agrupadas por tipo de despesa (campo `topo`).
 | Campo | Tipo | Descrição |
 |--------|-------|-----------|
 | **data** | DATE | Data da despesa conforme registrada na dim_despesas |
-| **ano** | INT | Ano extraído do campo `data` da `dim_despesas` |
-| **mes** | INT | Mês extraído do campo `data` da `dim_despesas` |
 | **tipo_despesa** | TEXT | Agrupamento pelo campo `tipo` da `dim_despesas` |
 | **total_despesa** | NUMERIC | Soma dos valores (`valor`) para o mesmo tipo/mês/ano |
 
