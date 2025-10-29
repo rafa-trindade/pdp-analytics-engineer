@@ -18,7 +18,7 @@ O **Airflow** é responsável pela orquestração dos pipelines de extração, c
 - ✅ Modelagem de tabelas analíticas a partir das **tabelas fato e dimensão** utilizando o DBT na camada **mart**.  
 - ✅ **Dataviz:** Exemplo de consumo dos modelos analíticos no **Power BI** com criação de dashboards e relaórios.  
 
-![projeto-pdp-dw-powerbi](./docs/projeto-v8.png)
+![projeto-pdp-dw-powerbi](https://i.postimg.cc/8z3CYGt1/projeto-v8.png)
 
 ___
 
