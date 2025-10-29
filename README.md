@@ -98,7 +98,7 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 
 ## `pdp_dw_powerbi.pbix`
 
-![powerbi](https://dswa1xdat8uez.cloudfront.net/2hbyz%2Fpreview%2F72221309%2Fmain_large.gif?response-content-disposition=inline%3Bfilename%3D%22main_large.gif%22%3B&response-content-type=image%2Fgif&Expires=1761716147&Signature=ACJk0bd3E7-IITAfyI1PyODS-8O3vhTBvCbNYnfXg2Q3tc0jje5Q0So6DIYj-XFohexS2YNTvVo3gvcIJcrJ0EbPv~LF2kRitEVlYvw2F0YIcDaDJVNZNRzLNtj0Fv4T~zc5~uJNIGK-lcC6-5QbjooQjHYv-OvhA-FGgqgbsw8z7ggsdC-hofk02Yi-CF5xOMHFCjkqln6X9arT~-mczHoxn7fW35IRimmY8RPJju~gcXUhzT~IwcX2amp7T~1MJr7SZK9Eizg1~V550OLWMBsdT4eNKmIQIfh9m1isSPHyIykTOHPhC2R4ZFWECmyRxIL7ogCFw4E0fJ-m~XOU5w__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ)
+![powerbi](https://i.postimg.cc/B6dHfys4/pdp-dw-powerbi.png)
 
 ---
 
