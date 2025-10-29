@@ -6,7 +6,7 @@ Este projeto tem como objetivo **implementar, modelar e consumir um Data Warehou
 
 O **Airflow** é responsável pela orquestração dos pipelines de extração, carregamento e transformação dos dados; o **DBT** atua na transformação e modelagem dos dados dentro do Data Warehouse, aplicando boas práticas de engenharia analítica; e o **Power BI** é utilizado na camada de visualização e análise, permitindo a criação de dashboards interativos e indicadores de desempenho.
 
-## 📄 Relatório de Execução do Projeto
+## 📄 Relatório de Execução do Projeto:
 
 - ✅ Criação da dimensão `dim_data` via Python que será utilizada como **seeds** no DBT.  
 - ✅ Ingestão de dados transacionais fictícios no banco de dados **SQL Server** do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).  
@@ -98,19 +98,19 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 
 ## `pdp_dw_powerbi.pbix`
 
-![powerbi](./reports/pdp_dw_powerbi.png)
+![powerbi](https://i.postimg.cc/wjWW8fmM/pdp-dw-powerbi.png)
 
 ---
 
 ## 🧩 Modelagem:
 
 ## `modelo_olap`
-![Diagrama OLAP](./docs/olap-model-v3.png)
+![Diagrama OLAP](https://i.postimg.cc/25bxpzYF/olap-model-v3.png)
 
 ## 💻 Origem dos Dados Transacionais:
 
 ## `pdp-hospedagem` [[link]](https://github.com/rafa-trindade/pdp-hospedagem)
-![Diagrama OLTP](./docs/oltp-model-v4.png)
+![Diagrama OLTP](https://i.postimg.cc/ZnRRgqtB/oltp-model-v4.png)
 
 ---
 
