@@ -56,4 +56,4 @@ with DAG(
     )
 
 
-    extract_task >> load_task >> dbt_staging_task >> dbt_seed_task >> dbt_core_task >> dbt_test_task
+    extract_task >> load_task >> dbt_staging_task >> dbt_seed_task >> dbt_core_task >> dbt_test_task >> dbt_marts_task

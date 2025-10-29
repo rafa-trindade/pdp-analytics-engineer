@@ -6,27 +6,37 @@ Este projeto tem como objetivo **implementar, modelar e consumir um Data Warehou
 
 O **Airflow** é responsável pela orquestração dos pipelines de extração, carregamento e transformação dos dados; o **DBT** atua na transformação e modelagem dos dados dentro do Data Warehouse, aplicando boas práticas de engenharia analítica; e o **Power BI** é utilizado na camada de visualização e análise, permitindo a criação de dashboards interativos e indicadores de desempenho.
 
-## 📍 Progresso do Projeto:
+## 📄 Relatório de Execução do Projeto
 
-- ✅ Criação das dimensões `dim_date` via Python que serão utilizadas como **seeds** no DBT.  
+- ✅ Criação da dimensão `dim_data` via Python que será utilizada como **seeds** no DBT.  
 - ✅ Ingestão de dados transacionais fictícios no banco de dados **SQL Server** do projeto [**pdp-hospedagem**](https://github.com/rafa-trindade/pdp-hospedagem) utilizando [**datafaker-rafatrindade**](https://github.com/rafa-trindade/datafaker-rafatrindade).  
 - ✅ **Conteinerização** do projeto utilizando **Docker**.
 - ✅ Implementação da **extração (Extract)** dos dados transacionais via pipeline orquestrada no **Airflow**, com arquivos extraídos salvos na pasta `data/extracted`.  
 - ✅ Implementação da **Carga (Load)** dos dados extraídos do SQL Server para a camada **raw** do Data Warehouse (PostgreSQL) via pipeline orquestrada no **Airflow**.  
 - ✅ **Transformações (Transform)** e modelagem dos dados no DBT, estruturando as camadas **staging** e **core**.  
 - ✅ Implementação de **testes automatizados** via DBT para garantir a **qualidade dos dados** na camada **core**.  
+- ✅ Modelagem de tabelas analíticas a partir das **tabelas fato e dimensão** utilizando o DBT na camada **mart**.  
+- ✅ **Dataviz:** Exemplo de consumo dos modelos analíticos no **Power BI** com criação de dashboards e relaórios.  
 
-
-## 🚧 Próximos Passos:
-
-- Modelagem de tabelas analíticas a partir das **tabelas fato e dimensão** utilizando o DBT na camada **mart**.  
-- **Dataviz:** Consumo dos modelos analíticos no **Power BI** para criação de dashboards e relaórios.  
-
-![projeto-pdp-dw-powerbi](./docs/projeto-v5.png)
+![projeto-pdp-dw-powerbi](./docs/projeto-v8.png)
 
 ___
 
-## 📊 Camada Marts - Data Warehouse *(em andamento 🚧)*:
+## 🧠 Orquestração das DAGs no Airflow:
+
+`extract_task` → `load_task` → `dbt_staging_task` → `dbt_seed_task` → `dbt_core_task` → `dbt_test_task` → `dbt_marts_task`
+
+- `extract_task`: Extrai os dados do **SQL Server**.  
+- `load_task`: Carrega os dados brutos na camada **raw** **(PostgreSQL)**.  
+- `dbt_staging_task`: Cria as views da camada **staging**, responsáveis por padronizar e preparar os dados brutos.  
+- `dbt_seed_task`: Carrega as dimensões estáticas **(seeds)**.  
+- `dbt_core_task`: Modela e cria as tabelas **fato** e **dimensão** materializadas na camada **core**.  
+- `dbt_test_task`: Executa **testes automatizados** de qualidade de dados na camada **core**.  
+- `dbt_marts_task`: Gera as views analíticas da camada **marts**, prontas para consumo no Power BI.
+
+---
+
+## 📊 Camada Marts - Data Warehouse:
 
 A camada **Marts** contém views analíticas derivadas das tabelas da camada **Core**. Cada subpasta organiza os modelos por **categoria de análise** ou **tipo de métrica**, facilitando a consulta e o consumo dos dados.
 
@@ -88,16 +98,18 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 
 ## `pdp_dw_powerbi.pbix`
 
-![pdp_dw_powerbi.pbix](./reports/pdp_dw_powerbi.gif)
+![powerbi](./reports/pdp_dw_powerbi.png)
 
 ---
 
 ## 🧩 Modelagem:
 
-## 🧠 `modelo_olap`
+## `modelo_olap`
 ![Diagrama OLAP](./docs/olap-model-v3.png)
 
-## 🧩 `modelo_oltp`
+## 💻 Origem dos Dados Transacionais:
+
+## `pdp-hospedagem` [[link]](https://github.com/rafa-trindade/pdp-hospedagem)
 ![Diagrama OLTP](./docs/oltp-model-v4.png)
 
 ---
