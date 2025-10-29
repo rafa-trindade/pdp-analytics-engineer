@@ -1,4 +1,4 @@
-# 🗄️ pdp-dw-powerbi
+# ⚙️ pdp-analytics-engineer
 
 [![Projeto Badge](https://img.shields.io/badge/-pdp--hospedagem-2B5482?style=flat-square&logo=github&logoColor=fff)](https://github.com/rafa-trindade/pdp-hospedagem)
 
@@ -18,7 +18,7 @@ O **Airflow** é responsável pela orquestração dos pipelines de extração, c
 - ✅ Modelagem de tabelas analíticas a partir das **tabelas fato e dimensão** utilizando o DBT na camada **mart**.  
 - ✅ **Dataviz:** Exemplo de consumo dos modelos analíticos no **Power BI** com criação de dashboards e relaórios.  
 
-![projeto-pdp-dw-powerbi](https://i.postimg.cc/8z3CYGt1/projeto-v8.png)
+![projeto-pdp-analytics-engineer](https://i.postimg.cc/8z3CYGt1/projeto-v8.png)
 
 ___
 
@@ -94,7 +94,7 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 
 ---
 
-## 📊 Exemplo de Consumo - Power BI:
+## 📊 Consumo e Apresentação - Power BI:
 
 ## `pdp_dw_powerbi.pbix`
 
@@ -156,7 +156,7 @@ docker exec -it airflow airflow tasks test elt_dag load_data 2025-10-24
 ## 🗂️ Estrutura do Projeto:
 
 ```text
-pdp-dw-powerbi/
+pdp-analytics-engineer/
 ├── airflow/                 # Orquestração de pipelines ETL/ELT com Airflow
 │   ├── dags/                # Definição dos DAGs
 │   ├── logs/                # Armazenamento de logs de execução dos DAGs
