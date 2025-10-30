@@ -99,7 +99,7 @@ Resumo diário das receitas de hospedagens, com observações sobre feriados e f
 ## `pdp_dw_powerbi.pbix`
 
  <!--![powerbi](https://i.postimg.cc/B6dHfys4/pdp-dw-powerbi.png) -->
-![powerbi](https://i.postimg.cc/C5m873p4/pdp-dw-powerbi-v2.png)
+![powerbi](https://i.postimg.cc/mDc7LbJq/pdp-dw-powerbi-v2.png)
 
 
 ---
